@@ -24,7 +24,7 @@ async function fetchTotalGuildsAndMembers() {
     const totalServers = results.reduce((acc, shardData) => acc + shardData.totalServers, 0);
     const totalMembers = results.reduce((acc, shardData) => acc + shardData.totalMembers, 0);
 
-    console.log(`Total Servers: ${totalServers}, Total Members: ${totalMembers}`);
+    //console.log(`Total Servers: ${totalServers}, Total Members: ${totalMembers}`);
 
     // Send data to each shard via IPC (Inter-Process Communication)
     manager.shards.forEach(shard => {
@@ -36,4 +36,17 @@ async function fetchTotalGuildsAndMembers() {
 manager.spawn().then(() => {
     fetchTotalGuildsAndMembers();
     setInterval(fetchTotalGuildsAndMembers, 60000); // Re-fetch every 1 minute
+});
+
+
+
+const express = require("express");
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+    const imagePath = path.join(__dirname, 'index.html');
+    res.sendFile(imagePath);
+});
+app.listen(port, () => {
+    console.log(`🔗 Listening to GlaceYT : http://localhost:${port}`);
 });
