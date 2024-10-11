@@ -86,16 +86,6 @@ client.login(config.TOKEN || process.env.TOKEN).catch((e) => {
     console.log('TOKEN ERROR❌  - Turn On Intents or Reset New Token');
 });
 
-const express = require("express");
-const app = express();
-const port = 3000;
-app.get('/', (req, res) => {
-    const imagePath = path.join(__dirname, 'index.html');
-    res.sendFile(imagePath);
-});
-app.listen(port, () => {
-    console.log(`🔗 Listening to GlaceYT : http://localhost:${port}`);
-});
 
 printWatermark();
 
