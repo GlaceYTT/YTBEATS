@@ -26,12 +26,15 @@ const path = require('path');
 const { printWatermark } = require('./util/pw');
 const { initializePlayer } = require('./player');
 
-const client = new Client({
-    intents: Object.keys(GatewayIntentBits).map((a) => {
-        return GatewayIntentBits[a];
-    }),
-});
+// Define intents
+const intents = [
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildMembers,
+  GatewayIntentBits.GuildVoiceStates,
+  GatewayIntentBits.GuildMessages
+];
 
+const client = new Client({ intents });
 client.config = config;
 initializePlayer(client);
 
