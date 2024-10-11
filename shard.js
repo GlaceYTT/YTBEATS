@@ -1,6 +1,6 @@
 const { ShardingManager } = require('discord.js');
 require('dotenv').config();
-
+const path = require('path');
 // Initialize the Sharding Manager
 const manager = new ShardingManager('./index.js', {
     token: process.env.TOKEN,
