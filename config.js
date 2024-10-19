@@ -39,7 +39,7 @@ module.exports = {
   nodes: [
     {
         name: "Server",
-        host: "lava.catfein.com"",
+        host: "lava.catfein.com",
         port: 4000,
         password: "catfein",
         reconnectTimeout: 5000,
